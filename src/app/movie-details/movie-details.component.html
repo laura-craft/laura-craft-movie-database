@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+  <button  *ngIf="!movieSaved" (click)="onSubmit()">Save to Library</button>
+
+<div class="full-movie-container">
+
+
+<div class="movie-container">
+  <img src="{{ movieDetails.Poster }}" alt="" />
+  <div class="movie-content">
+  <h3>{{movieDetails.Title}}</h3>
+  <h4>{{movieDetails.Year}}</h4>
+
+  <p>{{movieDetails.imdbID}}</p>
+  <p>{{movieDetails.Actors}}</p>
+  <p>{{movieDetails.BoxOffice}}</p>
+  <p>{{movieDetails.Director}}</p>
+  <p>{{movieDetails.Plot}}</p>
+
+</div>
+</div>
+</div>

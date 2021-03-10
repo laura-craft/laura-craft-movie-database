@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<app-header></app-header>
+
+<div>
+<button class="deleteButton"  *ngIf = "saveMovie" (click)="onDelete(movieDetails.id)">Delete from Library</button>
+</div>
+
+<div class="full-movie-container">
+
+
+  <div class="movie-container">
+    <!-- <img src="{{ movieDetails.Poster }}" alt="" /> -->
+    <div class="movie-content">
+      <h3>{{movieDetails.Title}}</h3>
+      <h4>{{movieDetails.Year}}</h4>
+
+      <p>{{movieDetails.imdbID}}</p>
+      <p>{{movieDetails.Actors}}</p>
+      <p>{{movieDetails.BoxOffice}}</p>
+      <p>{{movieDetails.Director}}</p>
+      <p>{{movieDetails.Plot}}</p>
+
+    </div>
+  </div>
+</div>

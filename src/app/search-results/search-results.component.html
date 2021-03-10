@@ -1,0 +1,22 @@
+<app-header></app-header>
+<h3>Click on a poster to get more info and store to your library.</h3>
+
+<div *ngFor="let movies of movieSearchArray">
+
+  <div class="full-movie-container">
+
+  </div>
+
+  <div class="movie-container" (click)="getMovieDetails(movies.imdbID)">
+    <img src="{{ movies.Poster }}" alt=""/>
+
+    <div class="movie-content">
+    <h3>{{movies.Title}}</h3>
+    <h4>{{movies.Year}}</h4>
+
+    <p>{{movies.imdbID}}</p>
+  </div>
+  </div>
+
+
+</div>

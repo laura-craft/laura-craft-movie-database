@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+
+  <div class="container">
+     <input type="text" #titleInput placeholder="title" class="titleSearch">
+     <button (click)='onSearch(titleInput.value)'>Search</button>
+  </div>
+
+  <div class="vectorImg">
+      <img alt="film reel" src="../../assets/Film-Reel_1634d4457b4c5045ef6ce87d9fc3217e-m.jpg">
+  </div>
+
+
+
+
+<router-outlet></router-outlet>
