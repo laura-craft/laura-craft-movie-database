@@ -31,7 +31,3 @@ searchResultArray: [];
 
       }
     }
-
-  // onFetch() {
-  //   this.movieApi.
-  // }

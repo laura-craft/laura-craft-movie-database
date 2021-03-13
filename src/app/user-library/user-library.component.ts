@@ -18,7 +18,7 @@ export class UserLibraryComponent implements OnInit {
   public userLibrary: []=[];
   public loggedIn: boolean = false;
   public saveMovie: boolean;
-  public movie: Movie[]=[];
+
 
   constructor(
     private readonly router: Router,
@@ -28,17 +28,18 @@ export class UserLibraryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userLibrary = this.movieApi.movieDetails;
+
     this.restService.getMovie().then((res)=> {
+      console.log(res.data);
     this.userLibrary = res.data;
-    console.log(this.userLibrary);
+
     });
   }
 
   getMovieDetails(id) {
   this.movieApi.movieSearch(id).subscribe((desc) => {
   this.movieApi.movieDetails = desc;
-   this.router.navigate(['movie-details'])
+  //  this.router.navigate(['movie-details'])
   })
 }
 
@@ -53,15 +54,18 @@ export class UserLibraryComponent implements OnInit {
   movieApiTitle(Input: string) {
     this.movieApi.movieApiTitle(Input).subscribe((data) => {
       this.movieApi.movieDetails = data;
-      // this.router.navigate(['movie-details/', id]);
+
 
     });
   }
 
 
-onDelete(Movie) {
-  this.restService.deleteMovie(Movie);
+onDelete(imdbID) {
+  this.restService.deleteMovie(imdbID);
+  this.restService.getMovie().then((res)=> {
+  this.userLibrary = res.data;
   this.saveMovie = false;
-  // this.movieDetails = false;
+  }
+  )
 }
 }

@@ -38,10 +38,10 @@ export class RegisterPageComponent implements OnInit {
     this.rest.register(this.registerForm.value).then(res => {
       if (res.error) {
         this.errorMsg = res.msg;
-        console.log('register', res)
+
 
       } else {
-        console.log('register', res);
+
         this.jwtService.setJwt(res.data);
         this.router.navigate(['/main-pg']);
       }

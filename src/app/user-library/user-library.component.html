@@ -2,12 +2,12 @@
 <app-header></app-header>
 
 
-<div>
-  <button class="deleteBtn" type="submit"  (click)="onDelete(movie)">Delete from Library</button>
-</div>
 
-<div *ngFor="let movie of userLibrary">
 <div class="full-movie-container">
+<div *ngFor="let movie of userLibrary">
+  <div>
+    <button class="deleteBtn" type="submit"  (click)="onDelete(movie.imdbID)">Delete from Library</button>
+  </div>
 
   <div class="movie-container" (click)="getMovieDetails(userLibrary)">
 
