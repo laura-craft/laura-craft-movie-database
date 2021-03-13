@@ -6,6 +6,15 @@
   flex-direction: column;
   border: rgb(0, 0, 14);
 }
+
+button {
+  padding: 3px;
+  background-color: rgb(2, 24, 83);
+  border-radius: 15px 50px;
+  color: white;
+
+
+}
 p{
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -35,10 +44,9 @@ img {
 
 }
 .movie-container:hover {
-  background-color: rgb(126, 7, 7);
+  background-color: rgb(5, 0, 0);
 }
 
-.deleteButton {
-  padding: 20px;
-  background-color: yellow;
+.imdbID {
+  display: none;
 }

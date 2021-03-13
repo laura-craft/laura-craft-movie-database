@@ -13,6 +13,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { UserLibraryComponent } from './user-library/user-library.component';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -27,6 +29,8 @@ import { UserLibraryComponent } from './user-library/user-library.component';
     RegisterPageComponent,
     UserLibraryComponent,
 
+
+
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import { UserLibraryComponent } from './user-library/user-library.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
