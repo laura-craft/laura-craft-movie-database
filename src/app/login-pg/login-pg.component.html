@@ -11,14 +11,15 @@
     <div class="login-item">
         <form #myform="ngForm" (ngSubmit)="onSubmit()" class="form form-login">
           <div class="form-field">
-            <input name="email" id="login-email" type="email" class="form-input" placeholder="Email" required ngModel>
+            <input name="email" id="login-email" type="email" class="form-input" placeholder="Email" required [(ngModel)]="email" required>
           </div>
 
             <input name="password" id="login-password" type="password" class="form-input" placeholder="Password" required
-            ngModel>
+            [(ngModel)]="password" required>
 
             <div class="form-field">
-              <input type="submit" value="Log in">
+      <button type="submit" (click)="onSubmit()">Log in</button>
+              <!-- <input type="submit" value="Log in"> -->
             </div>
 
               <p>Don't have an account? Click <a [routerLink]="'/register-page'">here</a> to register.</p>

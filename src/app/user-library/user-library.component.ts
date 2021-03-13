@@ -1,8 +1,9 @@
+import { Movie } from './../movie.interface.ts/movie.interface';
 import { MovieApiService } from './../movie-api.service';
 import { Router } from '@angular/router';
 import { JwtService } from './../jwt.service';
 import { RestService } from './../rest.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 
@@ -13,9 +14,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-library.component.scss']
 })
 export class UserLibraryComponent implements OnInit {
-  public movieDetails;
-  userLibrary: []= [];
+  public movieDetails: [] = [];
+  public userLibrary: []=[];
+  public loggedIn: boolean = false;
   public saveMovie: boolean;
+  public movie: Movie[]=[];
 
   constructor(
     private readonly router: Router,
@@ -24,24 +27,40 @@ export class UserLibraryComponent implements OnInit {
     private readonly movieApi: MovieApiService) { }
 
   ngOnInit(): void {
+
+    this.userLibrary = this.movieApi.movieDetails;
     this.restService.getMovie().then((res)=> {
     this.userLibrary = res.data;
-    this.movieDetails = this.movieApi.movieDetails;
-    console.log(this.movieDetails);
+    console.log(this.userLibrary);
+    });
+  }
 
-  });
+  getMovieDetails(id) {
+  this.movieApi.movieSearch(id).subscribe((desc) => {
+  this.movieApi.movieDetails = desc;
+   this.router.navigate(['movie-details'])
+  })
 }
-  movieApiTitle(id: string) {
-    this.movieApi.movieApiTitle(id).subscribe((data) => {
+
+  movieSearch(Input: string) {
+    this.movieApi.movieSearch(Input).subscribe((data) => {
       this.movieApi.movieDetails = data;
-      this.router.navigate(['movie-details/', id]);
+      // this.router.navigate(['movie-details/', id]);
+
+    });
+  }
+
+  movieApiTitle(Input: string) {
+    this.movieApi.movieApiTitle(Input).subscribe((data) => {
+      this.movieApi.movieDetails = data;
+      // this.router.navigate(['movie-details/', id]);
 
     });
   }
 
 
-onDelete(id) {
-  this.restService.deleteMovie(id);
+onDelete(Movie) {
+  this.restService.deleteMovie(Movie);
   this.saveMovie = false;
   // this.movieDetails = false;
 }

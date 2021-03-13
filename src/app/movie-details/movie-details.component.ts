@@ -29,25 +29,26 @@ export class MovieDetailsComponent implements OnInit {
     this.movieDetails = this.movieApi.movieDetails;
     if (this.jwtService.getJwt()) {
       this.loggedIn = true;
-      this.userLibrary = this.restService.userLibrary;
-      for (let i = 0; i < this.userLibrary.length; i++){
-        console.log(this.userLibrary[i].movieDetails.imdbID);
-        console.log('movieDetails here', this.movieDetails.imdbID);
-        if (this.userLibrary[i].imdbID == this.movieDetails.imdbID) {
-          this.movieSaved = true;
-        } else {
-          this.movieSaved = false;
-        }
-      }
+      this.userLibrary = this.restService.getMovie;
+      // for (let i = 0; i < this.movieDetails.length; i++){
+      //   console.log(this.userLibrary[i].movieDetails.id);
+      //   console.log('movieDetails here', this.movieDetails.id);
+      //   if (this.userLibrary[i].id == this.movieDetails.id) {
+      //     this.movieSaved = true;
+      //   } else {
+      //     this.movieSaved = false;
+      //   }
+      // }
       console.log('movie-details', this.userLibrary);
     }
     console.log(this.movieDetails);
   }
  onSubmit(){
-    this.restService.saveMovie({
+ console.log(this.movieDetails.Poster);
+  this.restService.saveMovie({
       imdbID: this.movieDetails.imdbID,
-      title: this.movieDetails.title,
-      poster: this.movieDetails.poster,
+      title: this.movieDetails.Title,
+      poster: this.movieDetails.Poster,
       // this.router.navigate(['/user-library']);
     });
     this.movieSaved = true;

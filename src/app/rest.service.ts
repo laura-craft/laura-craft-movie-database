@@ -29,7 +29,7 @@ export class RestService {
   getMovie():  Promise<any> {
     const jwt = this.jwtService.getJwt();
     return this.http
-    .get(`${environment.apiUrl}/userLibrary`, {
+    .get(`${environment.apiUrl}/user-library`, {
       headers: {
         Authorization: `Bearer ${jwt}`, 'Access-Control-Allow-Origin': '*',
       },
@@ -50,10 +50,11 @@ export class RestService {
 
   }
 
-deleteMovie(id): Promise<any> {
+  //may not need to pass id
+deleteMovie(imdbID): Promise<any> {
     const jwt = this.jwtService.getJwt();
     return this.http
-    .delete(`${environment.apiUrl}/delete-movie/${id}`, {
+    .delete(`${environment.apiUrl}/delete-movie/${imdbID}`, {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },

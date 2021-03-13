@@ -1,25 +1,25 @@
 <router-outlet></router-outlet>
 <app-header></app-header>
 
+
 <div>
-<button class="deleteButton"  *ngIf = "saveMovie" (click)="onDelete(movieDetails.id)">Delete from Library</button>
+  <button class="deleteBtn" type="submit"  (click)="onDelete(movie)">Delete from Library</button>
 </div>
 
+<div *ngFor="let movie of userLibrary">
 <div class="full-movie-container">
 
+  <div class="movie-container" (click)="getMovieDetails(userLibrary)">
 
-  <div class="movie-container">
-    <!-- <img src="{{ movieDetails.Poster }}" alt="" /> -->
-    <div class="movie-content">
-      <h3>{{movieDetails.Title}}</h3>
-      <h4>{{movieDetails.Year}}</h4>
+    <img src="{{ movie.poster }}" alt="Photo of {{movie.title}}" />
 
-      <p>{{movieDetails.imdbID}}</p>
-      <p>{{movieDetails.Actors}}</p>
-      <p>{{movieDetails.BoxOffice}}</p>
-      <p>{{movieDetails.Director}}</p>
-      <p>{{movieDetails.Plot}}</p>
-
+    <h3>{{movie.title}}</h3>
+    <p class="imdbID">{{movie.imdbID}}</p>
+    <!-- <h4>{{movie.Year}}</h4>
+    <p>{{movie.Actors}}</p>
+    <p>{{movie.BoxOffice}}</p>
+    <p>{{movie.Director}}</p>
+    <p>{{movie.Plot}}</p> -->
     </div>
+
   </div>
-</div>
