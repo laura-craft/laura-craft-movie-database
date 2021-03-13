@@ -4,10 +4,7 @@
       <div class="col head-navbar">
         <!--header navbar-->
         <nav  class="navbar navbar-expand-lg  navbar-light" >
-          <!-- *ngIf="!jwtService.getJwt()" -->
-          <!-- <button class="navbar-toggler" type="button" (click)="toggleNavBar()">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
+
           <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
             <div class="navbar-nav mr-auto">
               <a class="nav-item" nav-link px-3 routerLink="/" (click)="onLogout()">Log Out</a>

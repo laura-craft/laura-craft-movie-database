@@ -30,26 +30,17 @@ export class MovieDetailsComponent implements OnInit {
     if (this.jwtService.getJwt()) {
       this.loggedIn = true;
       this.userLibrary = this.restService.getMovie;
-      // for (let i = 0; i < this.movieDetails.length; i++){
-      //   console.log(this.userLibrary[i].movieDetails.id);
-      //   console.log('movieDetails here', this.movieDetails.id);
-      //   if (this.userLibrary[i].id == this.movieDetails.id) {
-      //     this.movieSaved = true;
-      //   } else {
-      //     this.movieSaved = false;
-      //   }
-      // }
-      console.log('movie-details', this.userLibrary);
+
     }
-    console.log(this.movieDetails);
+
   }
  onSubmit(){
- console.log(this.movieDetails.Poster);
+
   this.restService.saveMovie({
       imdbID: this.movieDetails.imdbID,
       title: this.movieDetails.Title,
       poster: this.movieDetails.Poster,
-      // this.router.navigate(['/user-library']);
+
     });
     this.movieSaved = true;
   }
